@@ -17,8 +17,10 @@ def conversion_type():
 
     while True:
         
+        # Asks for type of conversion
         conversion = str(input('\nPlease enter the type of conversion you want to do, "distance", "mass", "time", or "volume": '))
 
+        # Checks for invalid answers
         if conversion == "distance" or conversion == "mass" or conversion == "time" or conversion == "volume":
             return(conversion)
             break
@@ -32,8 +34,10 @@ def ask_amount():
 
     while True:
         try:
+            # Asks for a float amount
             amount = float(input("Please enter the amount you want to convert: "))
             
+            # Checks that it's above 0
             if amount > 0:
                 return(amount)
                 break
@@ -41,6 +45,7 @@ def ask_amount():
             else: 
                 print(amount_error)
             
+        # Checks errors
         except ValueError:
             print(amount_error)
 
@@ -50,32 +55,40 @@ def start_unit():
     
     while True:
         
+        # Asks for starting unit for distance
         if type == "distance":
             start = str(input('Please enter your starting unit of measurement, "mm", "cm", "m", or "km": '))
+            # Checks for invalid answers
             if start == "mm" or start == "cm" or start == "m" or start == "km":
                 return(start)
                 break
             else:
                 print(option_error)
 
+        # Asks for starting unit for mass
         elif type == "mass":
             start = str(input('Please enter your starting unit of measurement, "mg", "g", "kg", or "t": '))
+            # Checks for invalid answers
             if start == "mg" or start == "g" or start == "kg" or start == "t":
                 return(start)
                 break
             else:
                 print(option_error)
 
+        # Asks for starting unit for time
         elif type == "time":
             start = str(input('Please enter your starting unit of measurement, "ms", "sec", "min", "hr", "day", "wk", "mth", or "yr": '))
+            # Checks for invalid answers
             if start == "ms" or start == "sec" or start == "min" or start == "hr" or start == "day" or start == "wk" or start == "mth" or start == "yr":
                 return(start)
                 break
             else:
                 print(option_error)
 
+        # Asks for starting unit for volume
         elif type == "volume":
             start = str(input('Please enter your starting unit of measurement, "mL", "L", "kL", or "ML": '))
+            # Checks for invalid answers
             if start == "mL" or start == "L" or start == "kL" or start == "ML":
                 return(start)
                 break
@@ -88,32 +101,40 @@ def end_unit():
 
     while True:
         
+        # Asks for ending unit for distance
         if type == "distance":
             end = str(input('Please enter your starting unit of measurement, "mm", "cm", "m", or "km": '))
+            # Checks for invalid answers
             if end == "mm" or end == "cm" or end == "m" or end == "km":
                 return(end)
                 break
             else:
                 print(option_error)
 
+        # Asks for ending unit for mass
         elif type == "mass":
             end = str(input('Please enter your starting unit of measurement, "mg", "g", "kg", or "t": '))
+            # Checks for invalid answers
             if end == "mg" or end == "g" or end == "kg" or end == "t":
                 return(end)
                 break
             else:
                 print(option_error)
 
+        # Asks for ending unit for time
         elif type == "time":
             end = str(input('Please enter your starting unit of measurement, "ms", "sec", "min", "hr", "day", "wk", "mth", or "yr": '))
+            # Checks for invalid answers
             if end == "ms" or end == "sec" or end == "min" or end == "hr" or end == "day" or end == "wk" or end == "mth" or end == "yr":
                 return(end)
                 break
             else:
                 print(option_error)
 
+        # Asks for ending unit for volume
         elif type == "volume":
             end = str(input('Please enter your starting unit of measurement, "mL", "L", "kL", or "ML": '))
+            # Checks for invalid answers
             if end == "mL" or end == "L" or end == "kL" or end == "ML":
                 return(end)
                 break
@@ -121,10 +142,12 @@ def end_unit():
                 print(option_error)
 
 
-# Doing the conversion
+# Doing the conversions
 def convert(amount, start, end):
 
+    # Conversions for distance
     if type == "distance":
+        # Starting at mm
         if start == "mm":
             if end == "mm":
                 output = amount
@@ -135,6 +158,7 @@ def convert(amount, start, end):
             elif end == "km":
                 output = amount / 1000
         
+        # Starting at cm
         elif start == "cm":
             if end == "mm":
                 output = amount * 10
@@ -145,6 +169,7 @@ def convert(amount, start, end):
             elif end == "km":
                 output = amount / 100000
 
+        # Starting at m
         elif start == "m":
             if end == "mm":
                 output = amount * 1000
@@ -155,6 +180,7 @@ def convert(amount, start, end):
             elif end == "km":
                 output = amount / 1000
         
+        # Starting at km
         elif start == "km":
             if end == "mm":
                 output = amount * 1000000
@@ -166,7 +192,9 @@ def convert(amount, start, end):
                 output = amount
 
 
+    # Conversions for mass
     elif type == "mass":
+        # Starting at mg
         if start == "mg":
             if end == "mg":
                 output = amount
@@ -177,6 +205,7 @@ def convert(amount, start, end):
             elif end == "t":
                 output = amount / 1000000000
         
+        # Starting at g
         elif start == "g":
             if end == "mg":
                 output = amount * 1000
@@ -187,6 +216,7 @@ def convert(amount, start, end):
             elif end == "t":
                 output = amount / 1000000
 
+        # Starting at kg
         elif start == "kg":
             if end == "mg":
                 output = amount * 1000000
@@ -197,6 +227,7 @@ def convert(amount, start, end):
             elif end == "t":
                 output = amount / 1000
         
+        # Starting at t
         elif start == "t":
             if end == "mg":
                 output = amount * 1000000000
@@ -208,7 +239,9 @@ def convert(amount, start, end):
                 output = amount
 
 
+    # Conversions for time
     elif type == "time":
+        # Starting at ms
         if start == "ms":
             if end == "ms":
                 output = amount
@@ -227,6 +260,7 @@ def convert(amount, start, end):
             elif end == "yr":
                 output = amount / 29030400000
         
+        # Starting at sec
         elif start == "sec":
             if end == "ms":
                 output = amount * 1000
@@ -245,6 +279,7 @@ def convert(amount, start, end):
             elif end == "yr":
                 output = amount / 29030400
 
+        # Starting at min
         elif start == "min":
             if end == "ms":
                 output = amount * 60000
@@ -263,6 +298,7 @@ def convert(amount, start, end):
             elif end == "yr":
                 output = amount / 483840
 
+        # Starting at hr
         elif start == "hr":
             if end == "ms":
                 output = amount * 3600000
@@ -281,6 +317,7 @@ def convert(amount, start, end):
             elif end == "yr":
                 output = amount / 8064
 
+        # Starting at day
         elif start == "day":
             if end == "ms":
                 output = amount * 86400000
@@ -299,6 +336,7 @@ def convert(amount, start, end):
             elif end == "yr":
                 output = amount / 365.25
 
+        # Starting at wk
         elif start == "wk":
             if end == "ms":
                 output = amount * 604800000
@@ -317,6 +355,7 @@ def convert(amount, start, end):
             elif end == "yr":
                 output = amount / 52
 
+        # Starting at mth
         elif start == "mth":
             if end == "ms":
                 output = amount * 2419200000
@@ -335,6 +374,7 @@ def convert(amount, start, end):
             elif end == "yr":
                 output = amount / 12
 
+        # Starting at yr
         elif start == "yr":
             if end == "ms":
                 output = amount * 31449600000
@@ -353,8 +393,9 @@ def convert(amount, start, end):
             elif end == "yr":
                 output = amount
 
-
+    # Conversions for volume
     elif type == "volume":
+        # Starting at mL
         if start == "mL":
             if end == "mL":
                 output = amount
@@ -365,6 +406,7 @@ def convert(amount, start, end):
             elif end == "ML":
                 output = amount / 1000000000
 
+        # Starting at L
         elif start == "L":
             if end == "mL":
                 output = amount * 1000
@@ -375,6 +417,7 @@ def convert(amount, start, end):
             elif end == "ML":
                 output = amount / 1000000
 
+        # Starting at kL
         elif start == "kL":
             if end == "mL":
                 output = amount * 1000000
@@ -385,6 +428,7 @@ def convert(amount, start, end):
             elif end == "ML":
                 output = amount / 1000
 
+        # Starting at ML
         elif start == "ML":
             if end == "mL":
                 output = amount * 1000000000
@@ -414,6 +458,7 @@ if instruct == "":
     print('2. Enter the amount you want to convert. Eg. "500".')
     print('3. Enter the starting unit of measurement. Eg. "metres".')
     print('4. Enter the ending conversion. Eg. "centimetres".')
+    # Asks to continue program after instructions
     input("\nPress <enter> to continue. ")
 
 else:
@@ -422,6 +467,7 @@ else:
 # Runs the conversion calculator
 keep_going = ""
 
+# Loops code
 while keep_going == "":
 
     # Runs the input questions
@@ -434,4 +480,5 @@ while keep_going == "":
     outputt = convert(amount, startt, endd)
     print(f"\n{amount}{startt} converted to {endd}, is {outputt}{endd}. ")
 
+    # Asks whether wants to repeat program or not
     keep_going = input("\nWould you like to do another conversion? If yes, press <enter>, if no, press any other key. ")
